@@ -1,0 +1,1925 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>三章一Q：營養午餐神探團 | KITCHEN RUSH!</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #132238;
+      --paper-bg: #F4F9FD;
+      --grid-line: #DCE9F5;
+      --brand-orange: #FF6B00;
+      --brand-yellow: #FFE600;
+    }
+
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background-color: var(--paper-bg);
+      background-image:
+        linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+      background-size: 24px 24px;
+      color: var(--ink);
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* 新粗野主義 (Neo-Brutalism) 粗邊框與硬邊立體陰影 */
+    .neo-card {
+      background-color: #FFFFFF;
+      border: 3px solid var(--ink);
+      box-shadow: 5px 5px 0px var(--ink);
+    }
+
+    .neo-pill {
+      border: 2.5px solid var(--ink);
+      box-shadow: 2px 2px 0px var(--ink);
+    }
+
+    .neo-btn {
+      border: 3px solid var(--ink);
+      box-shadow: 4px 4px 0px var(--ink);
+      transition: transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.12s ease, background-color 0.15s ease;
+    }
+
+    .neo-btn:hover:not(:disabled) {
+      transform: translate(-1px, -1px);
+      box-shadow: 5px 5px 0px var(--ink);
+    }
+
+    .neo-btn:active:not(:disabled) {
+      transform: translate(3px, 3px);
+      box-shadow: 1px 1px 0px var(--ink);
+    }
+
+    .neo-btn-sm {
+      border: 2.5px solid var(--ink);
+      box-shadow: 2.5px 2.5px 0px var(--ink);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.15s ease;
+    }
+
+    .neo-btn-sm:hover:not(:disabled) {
+      transform: translate(-1px, -1px);
+      box-shadow: 3.5px 3.5px 0px var(--ink);
+    }
+
+    .neo-btn-sm:active:not(:disabled) {
+      transform: translate(2px, 2px);
+      box-shadow: 0px 0px 0px var(--ink);
+    }
+
+    .header-title-shadow {
+      text-shadow: 2px 2px 0px var(--ink), -1px -1px 0px var(--ink), 1px -1px 0px var(--ink), -1px 1px 0px var(--ink);
+    }
+
+    /* 微動畫 */
+    @keyframes npcBounce {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-5px) rotate(1.5deg); }
+    }
+    .animate-npc {
+      animation: npcBounce 2.4s ease-in-out infinite;
+    }
+
+    @keyframes slideInRight {
+      0% { opacity: 0; transform: translateX(20px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+    .animate-slide-in {
+      animation: slideInRight 0.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    @keyframes popIn {
+      0% { opacity: 0; transform: scale(0.93) translateY(8px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .animate-pop {
+      animation: popIn 0.24s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    @keyframes stampSlam {
+      0% { opacity: 0; transform: scale(2.2) rotate(-18deg); }
+      65% { opacity: 1; transform: scale(0.94) rotate(4deg); }
+      100% { opacity: 1; transform: scale(1) rotate(-4deg); }
+    }
+    .animate-stamp {
+      animation: stampSlam 0.32s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-6px); }
+      40%, 80% { transform: translateX(6px); }
+    }
+    .animate-shake {
+      animation: shake 0.35s ease-in-out;
+    }
+
+    @keyframes floatScore {
+      0% { opacity: 1; transform: translateY(0) scale(1); }
+      100% { opacity: 0; transform: translateY(-26px) scale(1.15); }
+    }
+    .animate-float {
+      animation: floatScore 0.85s ease-out forwards;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- ==================== 1. 可收合式頂部活力橘 Header ==================== -->
+  <header id="main-header" class="w-full bg-[#FF6B00] border-b-4 border-[#132238] px-3 sm:px-6 py-2.5 sticky top-0 z-30 transition-all">
+    <div class="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <!-- 左側品牌標題 -->
+      <div class="flex items-center gap-2.5">
+        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#132238] p-1.5 flex items-center justify-center shrink-0 border-2 border-[#132238] shadow-[2px_2px_0_#FFE600]">
+          <svg viewBox="0 0 48 48" class="w-full h-full">
+            <rect x="4" y="8" width="40" height="32" rx="6" fill="#EF4444" stroke="#FFFFFF" stroke-width="2.5"/>
+            <rect x="8" y="12" width="14" height="11" rx="2" fill="#22C55E"/>
+            <rect x="25" y="12" width="15" height="11" rx="2" fill="#FACC15"/>
+            <rect x="8" y="26" width="14" height="10" rx="2" fill="#FB923C"/>
+            <rect x="25" y="26" width="15" height="10" rx="2" fill="#FFFFFF"/>
+            <circle cx="32.5" cy="31" r="2" fill="#EF4444"/>
+          </svg>
+        </div>
+
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-lg sm:text-xl font-black text-white tracking-wide header-title-shadow leading-none">
+              三章一Q神探團
+            </h1>
+            <span class="bg-[#FFE600] text-[#132238] text-[10px] font-black px-2 py-0.5 rounded-md border-2 border-[#132238] shadow-[2px_2px_0_#132238] -rotate-2">
+              KITCHEN RUSH!
+            </span>
+          </div>
+          <p class="text-[11px] font-bold text-amber-100 mt-0.5 hidden sm:block">
+            看懂安心食材身分證，守護營養午餐每一口！
+          </p>
+        </div>
+      </div>
+
+      <!-- 右側功能膠囊列（含一鍵收起頂部按鈕） -->
+      <div class="flex items-center gap-1.5 sm:gap-2">
+        <button onclick="toggleBriefingModal(true)" class="neo-btn-sm bg-white hover:bg-amber-50 text-[#132238] px-2.5 sm:px-3 py-1.5 rounded-full text-xs font-black flex items-center gap-1 cursor-pointer">
+          <span>❓</span>
+          <span>簡報</span>
+        </button>
+
+        <button onclick="openAdminModal()" class="neo-btn-sm bg-[#FFE600] hover:bg-amber-300 text-[#132238] px-2.5 sm:px-3 py-1.5 rounded-full text-xs font-black flex items-center gap-1 cursor-pointer">
+          <span>⚙️</span>
+          <span>後台</span>
+        </button>
+
+        <button id="btn-sound" onclick="toggleSound()" class="neo-btn-sm w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white hover:bg-amber-50 flex items-center justify-center text-xs sm:text-sm cursor-pointer" title="切換音效">
+          🔊
+        </button>
+
+        <button onclick="toggleHeader(true)" class="neo-btn-sm bg-[#132238] hover:bg-slate-800 text-white px-2.5 py-1.5 rounded-full text-xs font-black flex items-center gap-1 cursor-pointer" title="收起頂部橫幅，讓舞台更寬敞">
+          <span>▲</span>
+          <span class="hidden sm:inline">收起</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 頂部收合後的輕巧懸浮工具膠囊（右上角固定，不遮擋主舞台） -->
+  <div id="floating-toolbar" class="hidden fixed top-2.5 right-3 z-40 flex items-center gap-1.5 bg-white/95 backdrop-blur-xs px-2.5 py-1.5 rounded-full border-2.5 border-[#132238] shadow-[3px_3px_0_#132238] animate-pop">
+    <button onclick="toggleHeader(false)" class="px-2 py-1 rounded-full bg-[#FF6B00] hover:bg-[#ff7b1c] text-white text-xs font-black border-2 border-[#132238] cursor-pointer" title="展開頂部標題">
+      ▼ 展開標題
+    </button>
+    <button onclick="toggleBriefingModal(true)" class="w-7 h-7 rounded-full bg-slate-100 hover:bg-amber-100 text-[#132238] text-xs font-black border-2 border-[#132238] flex items-center justify-center cursor-pointer" title="任務簡報">
+      ❓
+    </button>
+    <button id="btn-sound-mini" onclick="toggleSound()" class="w-7 h-7 rounded-full bg-slate-100 hover:bg-amber-100 text-xs border-2 border-[#132238] flex items-center justify-center cursor-pointer" title="切換音效">
+      🔊
+    </button>
+    <button onclick="openAdminModal()" class="px-2 py-1 rounded-full bg-[#FFE600] hover:bg-amber-300 text-[#132238] text-xs font-black border-2 border-[#132238] cursor-pointer" title="管理者後台">
+      ⚙️ 後台
+    </button>
+  </div>
+
+  <!-- ==================== 2. 高聚焦精簡單一主舞台 ==================== -->
+  <main class="flex-1 w-full max-w-3xl mx-auto p-3 sm:p-6 flex flex-col justify-center">
+
+    <!-- 玩家歡迎小膠囊（若有 ?player= 參數） -->
+    <div id="player-greeting" class="hidden mb-3 text-center">
+      <span class="inline-flex items-center gap-1.5 bg-[#FFE600] text-[#132238] px-3.5 py-1 rounded-full neo-pill text-xs font-black">
+        <span>🕵️</span>
+        <span id="player-greeting-text"></span>
+      </span>
+    </div>
+
+    <!-- ==================== 階段 1：高聚焦故事教學舞台 ==================== -->
+    <section id="screen-story" class="w-full">
+      <!-- 頂部精簡進度膠囊列 + 跳過按鈕 -->
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+        <!-- 4 位夥伴頭像膠囊進度列 -->
+        <div id="npc-pill-bar" class="flex items-center gap-1.5 sm:gap-2">
+          <!-- JS 動態生成 4 顆頭像膠囊 -->
+        </div>
+
+        <button onclick="startGame()" class="neo-btn-sm bg-white hover:bg-amber-100 text-[#132238] px-3 py-1.5 rounded-full text-xs font-black cursor-pointer">
+          ⚡ 跳過教學，直接開戰 ➔
+        </button>
+      </div>
+
+      <!-- 主角色展示白卡 -->
+      <div id="npc-stage" class="neo-card rounded-3xl p-4 sm:p-6 animate-slide-in">
+        <!-- 角色與官方標章並排展示 -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-4 relative">
+          <!-- 左側：NPC 夥伴 -->
+          <div id="npc-hero-box" class="rounded-2xl p-4 bg-emerald-50 border-2 border-[#132238] flex flex-col items-center justify-center text-center">
+            <span id="npc-role-tag" class="self-start text-[11px] font-black bg-white px-2.5 py-0.5 rounded-full border-2 border-[#132238] mb-1">
+              夥伴 1 / 4
+            </span>
+            <div id="npc-avatar" class="w-24 h-24 sm:w-28 sm:h-28 animate-npc flex items-center justify-center my-1"></div>
+            <div id="npc-name" class="font-black text-lg sm:text-xl text-[#132238]">阿農伯</div>
+            <div id="npc-catchphrase" class="text-xs font-black text-emerald-800 bg-white px-3 py-0.5 rounded-full border-2 border-[#132238] mt-1">
+              「從小到大的成長日記！」
+            </div>
+          </div>
+
+          <!-- 右側：認證標章 -->
+          <div class="rounded-2xl p-4 bg-white border-2 border-[#132238] flex flex-col items-center justify-center text-center relative">
+            <span class="self-start text-[11px] font-black bg-[#FFE600] text-[#132238] px-2.5 py-0.5 rounded-full border-2 border-[#132238] mb-1">
+              專屬認證標章
+            </span>
+            <div id="npc-badge-holder" class="w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center my-1"></div>
+            <div id="npc-badge-title" class="font-black text-base sm:text-lg text-[#132238]">TAP 產銷履歷標章</div>
+
+            <!-- 蓋章印記 -->
+            <div id="npc-stamped-mark" class="hidden absolute top-3 right-3 px-2.5 py-1 rounded-xl border-2 border-[#132238] bg-[#FFE600] text-[#132238] font-black text-xs shadow-[2px_2px_0_#132238] animate-stamp">
+              ✅ 已蓋章！
+            </div>
+          </div>
+        </div>
+
+        <!-- 對話框 -->
+        <div class="bg-[#132238] text-white rounded-2xl p-3.5 sm:p-4 mb-3.5 border-2 border-[#132238]">
+          <div class="flex items-start gap-2.5">
+            <span class="text-xl shrink-0">💬</span>
+            <p id="npc-dialogue" class="text-sm sm:text-base font-bold leading-relaxed min-h-[3rem]">
+              載入中...
+            </p>
+          </div>
+        </div>
+
+        <!-- 一句話記憶秘訣 -->
+        <div class="rounded-2xl p-3 bg-[#FFFBEB] border-2 border-[#132238] mb-4 flex items-center gap-2.5">
+          <span class="text-xl shrink-0">💡</span>
+          <p class="text-xs sm:text-sm font-bold text-[#132238] leading-snug">
+            <span class="font-black text-[#FF6B00]">一眼認出秘訣：</span>
+            <span id="npc-key-point"></span>
+          </p>
+        </div>
+
+        <!-- 底部行動按鈕 -->
+        <div class="flex items-center gap-2.5">
+          <button id="btn-prev-npc" onclick="prevNpc()" class="hidden px-4 py-3.5 rounded-2xl neo-btn bg-white hover:bg-slate-100 text-[#132238] font-black text-sm cursor-pointer">
+            ← 上一位
+          </button>
+          <button id="btn-npc-action" onclick="handleNpcAction()" class="flex-1 py-3.5 px-5 rounded-2xl neo-btn bg-[#FF6B00] hover:bg-[#ff7b1c] text-white font-black text-sm sm:text-base cursor-pointer">
+            🖐️ 蓋章記住了！認識下一位 ➔
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 階段 2：快手鑑定實戰舞台 ==================== -->
+    <section id="screen-game" class="hidden w-full space-y-3.5">
+      <!-- 頂部精簡狀態列 -->
+      <div class="neo-card rounded-2xl px-4 py-2.5 flex flex-wrap items-center justify-between gap-2">
+        <div class="flex items-center gap-2">
+          <span id="progress-text" class="bg-[#132238] text-white text-xs font-black px-3 py-1 rounded-full">
+            第 1 / 5 題
+          </span>
+          <span id="combo-status" class="hidden bg-[#FFE600] text-[#132238] border-2 border-[#132238] text-xs font-black px-2.5 py-0.5 rounded-full animate-pop">
+            🔥 2 連擊!
+          </span>
+        </div>
+
+        <!-- 中央：計時條 -->
+        <div class="flex items-center gap-2 flex-1 max-w-xs mx-2">
+          <span class="text-xs font-black">⏱️</span>
+          <div class="w-full h-3 bg-slate-100 rounded-full border-2 border-[#132238] overflow-hidden">
+            <div id="time-bar" class="h-full bg-emerald-500 transition-all duration-100" style="width: 100%;"></div>
+          </div>
+          <span id="time-num" class="text-xs font-black tabular-nums w-7 text-right">18s</span>
+        </div>
+
+        <!-- 右側：小抄與積分 -->
+        <div class="flex items-center gap-2">
+          <button onclick="toggleCheatSheet(true)" class="neo-btn-sm bg-[#FFE600] hover:bg-amber-300 text-[#132238] px-2.5 py-1 rounded-full text-xs font-black cursor-pointer">
+            🆘 小抄
+          </button>
+          <div class="relative bg-emerald-100 border-2 border-[#132238] px-3 py-1 rounded-full text-xs sm:text-sm font-black text-[#132238]">
+            <span id="score-text">0</span> 分
+            <span id="float-bonus" class="hidden absolute -top-6 right-0 bg-[#FFE600] border-2 border-[#132238] px-1.5 py-0.5 rounded-full text-[11px] font-black animate-float">
+              +10!
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 食材檢驗主卡 -->
+      <div id="question-card" class="neo-card rounded-3xl p-5 sm:p-6 text-center">
+        <div class="inline-block px-3 py-0.5 rounded-full bg-[#FFE600] border-2 border-[#132238] text-[11px] font-black text-[#132238] mb-3">
+          🍽️ 營養午餐食材進貨中
+        </div>
+
+        <!-- 食材圖片/Emoji 展示框 -->
+        <div id="item-media-box" class="w-24 h-24 sm:w-28 sm:h-28 mx-auto rounded-3xl bg-amber-50 border-3 border-[#132238] shadow-[3px_3px_0_#132238] flex items-center justify-center overflow-hidden mb-3">
+          <span id="item-emoji" class="text-5xl sm:text-6xl">🥚</span>
+        </div>
+
+        <h2 id="item-name" class="text-xl sm:text-2xl font-black text-[#132238] mb-2">國產洗選雞蛋</h2>
+        <div class="bg-[#F4F9FD] border-2 border-[#132238] rounded-2xl py-2 px-4 inline-block max-w-lg">
+          <p id="item-clue" class="text-xs sm:text-sm font-bold text-[#132238] leading-relaxed">
+            線索：蛋殼上印有溯源噴印碼，掃描可查詢牧場來源！
+          </p>
+        </div>
+      </div>
+
+      <!-- 四張標章選項卡 (2x2) -->
+      <div id="options-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <!-- TAP -->
+        <button data-tag="TAP" onclick="handleAnswer('TAP')" class="neo-btn p-3 rounded-2xl bg-white hover:bg-emerald-50 text-left flex items-center gap-3 cursor-pointer">
+          <div data-badge-slot="TAP" data-badge-size="w-13 h-13 sm:w-14 sm:h-14" class="shrink-0 flex items-center justify-center"></div>
+          <div class="min-w-0">
+            <div class="font-black text-[#132238] text-sm sm:text-base truncate">TAP 產銷履歷</div>
+            <div class="text-xs text-emerald-700 font-bold truncate">阿農伯・完整成長日記</div>
+          </div>
+        </button>
+
+        <!-- CAS -->
+        <button data-tag="CAS" onclick="handleAnswer('CAS')" class="neo-btn p-3 rounded-2xl bg-white hover:bg-rose-50 text-left flex items-center gap-3 cursor-pointer">
+          <div data-badge-slot="CAS" data-badge-size="w-13 h-13 sm:w-14 sm:h-14" class="shrink-0 flex items-center justify-center"></div>
+          <div class="min-w-0">
+            <div class="font-black text-[#132238] text-sm sm:text-base truncate">CAS 優良農產</div>
+            <div class="text-xs text-rose-700 font-bold truncate">品管小美・工廠安全牌</div>
+          </div>
+        </button>
+
+        <!-- ORGANIC -->
+        <button data-tag="ORGANIC" onclick="handleAnswer('ORGANIC')" class="neo-btn p-3 rounded-2xl bg-white hover:bg-lime-50 text-left flex items-center gap-3 cursor-pointer">
+          <div data-badge-slot="ORGANIC" data-badge-size="w-13 h-13 sm:w-14 sm:h-14" class="shrink-0 flex items-center justify-center"></div>
+          <div class="min-w-0">
+            <div class="font-black text-[#132238] text-sm sm:text-base truncate">有機農產品</div>
+            <div class="text-xs text-lime-700 font-bold truncate">精靈綠綠・零農藥化肥</div>
+          </div>
+        </button>
+
+        <!-- QR -->
+        <button data-tag="QR" onclick="handleAnswer('QR')" class="neo-btn p-3 rounded-2xl bg-white hover:bg-amber-50 text-left flex items-center gap-3 cursor-pointer">
+          <div data-badge-slot="QR" data-badge-size="w-18 h-11 sm:w-20 sm:h-12" class="shrink-0 flex items-center justify-center"></div>
+          <div class="min-w-0">
+            <div class="font-black text-[#132238] text-sm sm:text-base truncate">一Q 溯源/合格</div>
+            <div class="text-xs text-amber-700 font-bold truncate">汪警長・掃碼與電宰合格</div>
+          </div>
+        </button>
+      </div>
+
+      <!-- NPC 即時講評回饋卡 -->
+      <div id="feedback-box" class="hidden p-4 rounded-2xl neo-card animate-pop">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <div id="feedback-npc-mini" class="w-12 h-12 shrink-0 rounded-xl border-2 border-[#132238] bg-white overflow-hidden flex items-center justify-center"></div>
+            <div>
+              <div id="feedback-title" class="font-black text-sm sm:text-base mb-0.5"></div>
+              <p id="feedback-desc" class="text-xs sm:text-sm font-bold leading-relaxed"></p>
+            </div>
+          </div>
+          <button id="btn-next" onclick="nextQuestion()" class="shrink-0 px-5 py-2.5 rounded-xl neo-btn font-black text-sm text-white cursor-pointer">
+            下一題 ➔
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 階段 3：結算頒獎證書 ==================== -->
+    <section id="screen-end" class="hidden w-full neo-card rounded-3xl p-6 sm:p-8 text-center animate-pop">
+      <div class="inline-block px-4 py-1 rounded-full bg-[#FFE600] border-2 border-[#132238] shadow-[2px_2px_0_#132238] text-xs font-black text-[#132238] mb-3">
+        🏆 三章一Q 神探團結業證書
+      </div>
+
+      <div id="result-icon" class="text-6xl mb-2">👑</div>
+      <h2 id="result-title" class="text-2xl sm:text-3xl font-black text-[#132238] mb-1">傳奇食安大隊長</h2>
+      <p id="result-subtitle" class="text-xs sm:text-sm font-bold text-slate-600 mb-5">四位夥伴都對你讚不絕口！午餐食安交給你守護啦！</p>
+
+      <!-- 戰績面板 -->
+      <div class="grid grid-cols-3 gap-2.5 sm:gap-3 mb-5">
+        <div class="rounded-2xl p-3 bg-emerald-50 border-2 border-[#132238] shadow-[3px_3px_0_#132238]">
+          <div class="text-xs font-black text-emerald-800">神探總積分</div>
+          <div id="final-score" class="text-2xl sm:text-3xl font-black text-[#132238] mt-0.5">120</div>
+        </div>
+        <div class="rounded-2xl p-3 bg-[#FFE600] border-2 border-[#132238] shadow-[3px_3px_0_#132238]">
+          <div class="text-xs font-black text-[#132238]">鑑定命中</div>
+          <div id="final-correct" class="text-2xl sm:text-3xl font-black text-[#132238] mt-0.5">5 / 5</div>
+        </div>
+        <div class="rounded-2xl p-3 bg-orange-50 border-2 border-[#132238] shadow-[3px_3px_0_#132238]">
+          <div class="text-xs font-black text-orange-800">最高連擊</div>
+          <div id="final-combo" class="text-2xl sm:text-3xl font-black text-[#132238] mt-0.5">5 🔥</div>
+        </div>
+      </div>
+
+      <!-- 四位夥伴團圓 -->
+      <div class="bg-[#F4F9FD] border-2 border-[#132238] rounded-2xl p-3.5 mb-6">
+        <div class="text-xs font-black text-[#132238] mb-2.5">🎉 神探團四位夥伴為你喝采：</div>
+        <div class="grid grid-cols-4 gap-2 text-center">
+          <div class="bg-white p-2 rounded-xl border-2 border-[#132238]">
+            <div id="end-npc-TAP" class="w-10 h-10 mx-auto"></div>
+            <div class="text-[11px] font-black text-[#132238] mt-1">阿農伯</div>
+          </div>
+          <div class="bg-white p-2 rounded-xl border-2 border-[#132238]">
+            <div id="end-npc-CAS" class="w-10 h-10 mx-auto"></div>
+            <div class="text-[11px] font-black text-[#132238] mt-1">品管小美</div>
+          </div>
+          <div class="bg-white p-2 rounded-xl border-2 border-[#132238]">
+            <div id="end-npc-ORGANIC" class="w-10 h-10 mx-auto"></div>
+            <div class="text-[11px] font-black text-[#132238] mt-1">精靈綠綠</div>
+          </div>
+          <div class="bg-white p-2 rounded-xl border-2 border-[#132238]">
+            <div id="end-npc-QR" class="w-10 h-10 mx-auto"></div>
+            <div class="text-[11px] font-black text-[#132238] mt-1">汪警長</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 底部按鈕 -->
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <button onclick="restartStory()" class="px-5 py-3 rounded-2xl neo-btn bg-white hover:bg-slate-100 text-[#132238] font-black text-sm cursor-pointer">
+          📖 重看夥伴故事
+        </button>
+        <button onclick="startGame()" class="px-6 py-3 rounded-2xl neo-btn bg-[#FFE600] hover:bg-amber-300 text-[#132238] font-black text-sm cursor-pointer">
+          🔄 再玩一局
+        </button>
+        <button id="btn-next-station" onclick="goNextStation()" class="hidden px-7 py-3 rounded-2xl neo-btn bg-[#FF6B00] hover:bg-[#ff7b1c] text-white font-black text-sm cursor-pointer">
+          前往下一關 ➔
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== 任務簡報彈窗 ==================== -->
+  <div id="briefing-modal" class="hidden fixed inset-0 z-50 bg-black/55 flex items-center justify-center p-4">
+    <div class="bg-white w-full max-w-xl rounded-[28px] border-4 border-[#132238] shadow-[8px_8px_0_#132238] p-5 sm:p-7 text-center animate-pop">
+      <div class="inline-flex items-center gap-1.5 bg-[#FFE600] text-[#132238] px-4 py-1 rounded-full border-2 border-[#132238] shadow-[2px_2px_0_#132238] text-xs font-black mb-3">
+        <span>🕵️</span>
+        <span>三章一Q・任務簡報</span>
+      </div>
+
+      <div class="flex items-center justify-center gap-1 my-1">
+        <span class="text-5xl sm:text-6xl">🍱</span>
+        <span class="text-4xl sm:text-5xl -ml-3 mt-3">🔍</span>
+      </div>
+
+      <h2 class="text-2xl sm:text-3xl font-black text-[#132238] leading-tight mt-2 mb-2">
+        每天吃的營養午餐，<br/>怎麼分辨安心食材？
+      </h2>
+      <p class="text-xs sm:text-sm font-bold text-slate-600 mb-5">
+        歡迎來到《三章一Q神探團》！跟著下面 <span class="text-[#FF6B00] font-black">3 個超簡單步驟</span>，秒懂食材安全密碼：
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-left mb-6">
+        <div class="rounded-2xl p-3.5 bg-[#FFFBEB] border-2.5 border-[#132238] shadow-[3px_3px_0_#132238]">
+          <div class="text-2xl mb-1.5">👨‍🌾</div>
+          <div class="font-black text-sm text-[#132238] mb-1">1. 認識四夥伴</div>
+          <p class="text-xs font-bold text-slate-600 leading-relaxed">
+            聽阿農伯、小美、綠綠與汪警長介紹四大認證標章！
+          </p>
+        </div>
+        <div class="rounded-2xl p-3.5 bg-[#EFF6FF] border-2.5 border-[#132238] shadow-[3px_3px_0_#132238]">
+          <div class="text-2xl mb-1.5">🏷️</div>
+          <div class="font-black text-sm text-[#132238] mb-1">2. 快手驗標章</div>
+          <p class="text-xs font-bold text-slate-600 leading-relaxed">
+            根據食材線索，在倒數時間內選出正確的三章一Q標章！
+          </p>
+        </div>
+        <div class="rounded-2xl p-3.5 bg-[#FFF1F2] border-2.5 border-[#132238] shadow-[3px_3px_0_#132238]">
+          <div class="text-2xl mb-1.5">🏆</div>
+          <div class="font-black text-sm text-[#132238] mb-1">3. 拿神探證書</div>
+          <p class="text-xs font-bold text-slate-600 leading-relaxed">
+            累積連擊拿高分，解鎖食安大隊長榮譽勳章！
+          </p>
+        </div>
+      </div>
+
+      <button onclick="toggleBriefingModal(false)" class="w-full py-3.5 px-6 rounded-2xl neo-btn bg-[#FF6B00] hover:bg-[#ff7b1c] text-white font-black text-base sm:text-lg cursor-pointer">
+        我準備好了，開始闖關！ 🚀
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== 召喚小抄彈窗 ==================== -->
+  <div id="cheatsheet-modal" class="hidden fixed inset-0 z-50 bg-black/55 flex items-center justify-center p-4">
+    <div class="bg-white w-full max-w-lg rounded-3xl p-5 sm:p-6 border-4 border-[#132238] shadow-[8px_8px_0_#132238] animate-pop">
+      <div class="flex items-center justify-between mb-4">
+        <div class="inline-flex items-center gap-2 bg-[#FFE600] px-3.5 py-1 rounded-full border-2 border-[#132238] text-sm font-black text-[#132238]">
+          <span>🆘</span>
+          <span>神探夥伴求救小抄</span>
+        </div>
+        <button onclick="toggleCheatSheet(false)" class="neo-btn-sm w-9 h-9 rounded-full bg-white hover:bg-slate-100 text-[#132238] font-black cursor-pointer">✕</button>
+      </div>
+
+      <div class="space-y-2.5 text-xs sm:text-sm mb-5">
+        <div class="p-3 rounded-2xl bg-emerald-50 border-2 border-[#132238] flex items-center gap-3">
+          <div data-badge-slot="TAP" data-badge-size="w-12 h-12" class="shrink-0"></div>
+          <div><strong class="text-[#132238] font-black">TAP 產銷履歷（阿農伯）：</strong><span class="font-bold text-slate-700">飼養、屠宰、檢驗到販售 4 層完整紀錄！</span></div>
+        </div>
+        <div class="p-3 rounded-2xl bg-rose-50 border-2 border-[#132238] flex items-center gap-3">
+          <div data-badge-slot="CAS" data-badge-size="w-12 h-12" class="shrink-0"></div>
+          <div><strong class="text-[#132238] font-black">CAS 優良農產（品管小美）：</strong><span class="font-bold text-slate-700">國產原料、工廠加工衛生、冷鏈與定期檢驗！</span></div>
+        </div>
+        <div class="p-3 rounded-2xl bg-lime-50 border-2 border-[#132238] flex items-center gap-3">
+          <div data-badge-slot="ORGANIC" data-badge-size="w-12 h-12" class="shrink-0"></div>
+          <div><strong class="text-[#132238] font-black">有機農產品（精靈綠綠）：</strong><span class="font-bold text-slate-700">零化學農藥、零化肥、土壤水源嚴格檢測！</span></div>
+        </div>
+        <div class="p-3 rounded-2xl bg-amber-50 border-2 border-[#132238] flex items-center gap-3">
+          <div data-badge-slot="QR" data-badge-size="w-16 h-10" class="shrink-0"></div>
+          <div><strong class="text-[#132238] font-black">一Q 溯源/合格（汪警長）：</strong><span class="font-bold text-slate-700">防檢局屠宰衛生合格＋掃 QR Code 查來源！</span></div>
+        </div>
+      </div>
+
+      <button onclick="toggleCheatSheet(false)" class="w-full py-3.5 rounded-2xl neo-btn bg-[#FF6B00] hover:bg-[#ff7b1c] text-white font-black text-base cursor-pointer">
+        懂了！繼續鑑定 ➔
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== 管理者後台彈窗（題庫管理 + 標章/角色圖片替換 + 遊戲設定） ==================== -->
+  <div id="admin-modal" class="hidden fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-3 sm:p-5">
+    <div class="bg-white w-full max-w-4xl max-h-[92vh] rounded-3xl border-4 border-[#132238] shadow-[8px_8px_0_#132238] flex flex-col overflow-hidden animate-pop">
+      
+      <!-- 後台頂部標題列 -->
+      <div class="bg-[#132238] text-white px-5 py-3.5 flex items-center justify-between gap-2 shrink-0">
+        <div class="flex items-center gap-2.5">
+          <span class="bg-[#FFE600] text-[#132238] px-2.5 py-0.5 rounded-lg text-xs font-black">ADMIN</span>
+          <h3 class="font-black text-base sm:text-lg">三章一Q 管理者後台</h3>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="exportConfigJSON()" class="px-3 py-1.5 rounded-xl bg-slate-700 hover:bg-slate-600 text-xs font-black text-amber-300 cursor-pointer" title="匯出題庫與圖片設定檔">
+            📤 匯出設定
+          </button>
+          <label class="px-3 py-1.5 rounded-xl bg-slate-700 hover:bg-slate-600 text-xs font-black text-emerald-300 cursor-pointer" title="匯入先前備份的 JSON 設定檔">
+            📥 匯入設定
+            <input type="file" accept=".json" class="hidden" onchange="importConfigJSON(event)" />
+          </label>
+          <button onclick="closeAdminModal()" class="w-8 h-8 rounded-full bg-white text-[#132238] font-black text-sm hover:bg-amber-200 cursor-pointer">
+            ✕
+          </button>
+        </div>
+      </div>
+
+      <!-- 後台分頁切換列 -->
+      <div class="bg-[#F4F9FD] border-b-3 border-[#132238] px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 shrink-0">
+        <div class="flex items-center gap-2">
+          <button id="tab-btn-questions" onclick="switchAdminTab('questions')" class="px-4 py-2 rounded-xl border-2 border-[#132238] bg-[#FFE600] text-[#132238] font-black text-xs sm:text-sm shadow-[2px_2px_0_#132238] cursor-pointer">
+            📝 題庫管理 (<span id="admin-q-count">8</span>)
+          </button>
+          <button id="tab-btn-media" onclick="switchAdminTab('media')" class="px-4 py-2 rounded-xl border-2 border-[#132238] bg-white hover:bg-slate-100 text-[#132238] font-black text-xs sm:text-sm cursor-pointer">
+            🖼️ 標章與夥伴圖片
+          </button>
+          <button id="tab-btn-settings" onclick="switchAdminTab('settings')" class="px-4 py-2 rounded-xl border-2 border-[#132238] bg-white hover:bg-slate-100 text-[#132238] font-black text-xs sm:text-sm cursor-pointer">
+            ⚙️ 關卡參數
+          </button>
+        </div>
+
+        <button onclick="resetAllDefaults()" class="px-3 py-1.5 rounded-xl border-2 border-rose-600 bg-rose-50 hover:bg-rose-100 text-rose-700 font-black text-xs cursor-pointer">
+          🔄 還原原廠預設值
+        </button>
+      </div>
+
+      <!-- 後台捲動內容區 -->
+      <div class="flex-1 overflow-y-auto p-4 sm:p-6 space-y-5">
+        
+        <!-- 提示通知橫幅 -->
+        <div id="admin-toast" class="hidden p-3 rounded-2xl bg-emerald-100 border-2 border-[#132238] text-[#132238] font-black text-xs sm:text-sm text-center"></div>
+
+        <!-- ========== 分頁 1：題庫管理（新增 / 編輯 / 刪除 / 上傳圖片） ========== -->
+        <div id="admin-tab-questions" class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+          <!-- 左側：新增 / 編輯表單 (5欄) -->
+          <div class="lg:col-span-5 bg-[#FFFBEB] border-2.5 border-[#132238] rounded-2xl p-4 shadow-[3px_3px_0_#132238]">
+            <div class="flex items-center justify-between mb-3">
+              <h4 id="q-form-title" class="font-black text-base text-[#132238]">➕ 新增食材題目</h4>
+              <button id="btn-cancel-edit" onclick="resetQuestionForm()" class="hidden text-xs font-black text-rose-600 underline cursor-pointer">
+                取消編輯
+              </button>
+            </div>
+
+            <div class="space-y-3 text-xs sm:text-sm">
+              <div>
+                <label class="block font-black text-[#132238] mb-1">1. 食材名稱 *</label>
+                <input id="q-input-name" type="text" placeholder="例如：有機無毒小番茄" class="w-full px-3 py-2 rounded-xl border-2 border-[#132238] bg-white font-bold focus:outline-none focus:ring-2 focus:ring-[#FF6B00]" />
+              </div>
+
+              <div>
+                <label class="block font-black text-[#132238] mb-1">2. 正確認證標章 *</label>
+                <select id="q-input-answer" class="w-full px-3 py-2 rounded-xl border-2 border-[#132238] bg-white font-black">
+                  <option value="TAP">🟢 TAP 產銷履歷（阿農伯）</option>
+                  <option value="CAS">🔴 CAS 台灣優良農產品（品管小美）</option>
+                  <option value="ORGANIC">🌿 有機農產品標章（精靈綠綠）</option>
+                  <option value="QR">📱 一Q 溯源 / 屠宰合格（汪警長）</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block font-black text-[#132238] mb-1">3. 題目圖片（Emoji、圖片網址或上傳照片）</label>
+                <div class="flex items-center gap-2.5 mb-2">
+                  <div id="q-img-preview" class="w-14 h-14 rounded-2xl bg-white border-2 border-[#132238] flex items-center justify-center text-3xl shrink-0 overflow-hidden">
+                    🍅
+                  </div>
+                  <div class="flex-1 space-y-1.5">
+                    <input id="q-input-emoji" type="text" value="🍅" placeholder="輸入 Emoji 或圖片 URL" oninput="updateQuestionPreview()" class="w-full px-2.5 py-1.5 rounded-lg border-2 border-[#132238] bg-white text-xs font-bold" />
+                    <label class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#FFE600] hover:bg-amber-300 border-2 border-[#132238] text-xs font-black text-[#132238] cursor-pointer">
+                      <span>📷 上傳本機食材照片</span>
+                      <input type="file" accept="image/*" class="hidden" onchange="handleQuestionImageUpload(event)" />
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <label class="block font-black text-[#132238] mb-1">4. 食材線索提示 *</label>
+                <textarea id="q-input-clue" rows="2" placeholder="描述包裝上的特徵或生產方式..." class="w-full px-3 py-2 rounded-xl border-2 border-[#132238] bg-white text-xs font-bold focus:outline-none focus:ring-2 focus:ring-[#FF6B00]"></textarea>
+              </div>
+
+              <div>
+                <label class="block font-black text-[#132238] mb-1">5. 答題後夥伴講解（選填）</label>
+                <input id="q-input-explain" type="text" placeholder="留空將自動套用對應夥伴的標準講解" class="w-full px-3 py-2 rounded-xl border-2 border-[#132238] bg-white text-xs font-bold" />
+              </div>
+
+              <button onclick="saveQuestionItem()" class="w-full py-3 rounded-xl neo-btn bg-[#FF6B00] hover:bg-[#ff7b1c] text-white font-black text-sm cursor-pointer">
+                💾 儲存題目到題庫
+              </button>
+            </div>
+          </div>
+
+          <!-- 右側：現有題庫列表 (7欄) -->
+          <div class="lg:col-span-7 space-y-2.5">
+            <div class="flex items-center justify-between">
+              <h4 class="font-black text-base text-[#132238]">📚 目前題庫清單</h4>
+              <span class="text-xs font-bold text-slate-500">所有修改會自動儲存在瀏覽器中</span>
+            </div>
+            <div id="admin-question-list" class="space-y-2.5 max-h-[52vh] overflow-y-auto pr-1">
+              <!-- JS 動態渲染題目清單 -->
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== 分頁 2：標章與夥伴圖片修改 ========== -->
+        <div id="admin-tab-media" class="hidden space-y-6">
+          <!-- 四大官方標章圖片修改 -->
+          <div>
+            <h4 class="font-black text-base text-[#132238] mb-1">🏷️ 四大認證標章圖片替換</h4>
+            <p class="text-xs font-bold text-slate-500 mb-3">支援上傳真實官方 PNG/JPG 圖片檔或貼上圖片網址，留空則使用系統內建高畫質向量標章。</p>
+            <div id="admin-badges-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              <!-- JS 動態生成 4 張標章圖片設定卡 -->
+            </div>
+          </div>
+
+          <!-- 四位 NPC 角色圖片修改 -->
+          <div>
+            <h4 class="font-black text-base text-[#132238] mb-1">🧑‍🌾 四位神探夥伴立繪／頭像替換</h4>
+            <p class="text-xs font-bold text-slate-500 mb-3">可替換為學校吉祥物、營養師照片或自繪角色插圖！</p>
+            <div id="admin-npcs-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              <!-- JS 動態生成 4 張 NPC 圖片設定卡 -->
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== 分頁 3：關卡參數設定 ========== -->
+        <div id="admin-tab-settings" class="hidden max-w-lg mx-auto bg-[#F4F9FD] border-2.5 border-[#132238] rounded-2xl p-5 space-y-4">
+          <h4 class="font-black text-base text-[#132238]">⚙️ 遊戲規則與畫面設定</h4>
+
+          <div>
+            <label class="block text-xs sm:text-sm font-black text-[#132238] mb-1">每局隨機抽取題數</label>
+            <input id="setting-total-q" type="number" min="1" max="30" value="5" class="w-full px-3 py-2 rounded-xl border-2 border-[#132238] bg-white font-black text-sm" />
+            <p class="text-[11px] font-bold text-slate-500 mt-1">若設定大於題庫總數，將自動以題庫全部題目出題。</p>
+          </div>
+
+          <div>
+            <label class="block text-xs sm:text-sm font-black text-[#132238] mb-1">每題倒數秒數（秒）</label>
+            <input id="setting-time-limit" type="number" min="5" max="120" value="18" class="w-full px-3 py-2 rounded-xl border-2 border-[#132238] bg-white font-black text-sm" />
+          </div>
+
+          <button onclick="saveGameSettings()" class="w-full py-3 rounded-xl neo-btn bg-[#FF6B00] hover:bg-[#ff7b1c] text-white font-black text-sm cursor-pointer">
+            💾 套用並儲存參數
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /**
+     * =========================================================================
+     * 1. 內建高畫質向量圖庫（作為未上傳圖片時的預設 Fallback）
+     * =========================================================================
+     */
+    const DEFAULT_BADGE_SVGS = {
+      TAP: `
+        <svg viewBox="0 0 120 120" class="w-full h-full" aria-label="TAP 產銷履歷農產品標章">
+          <defs>
+            <path id="tapTopArc" d="M 22,60 A 38,38 0 1,1 98,60" />
+            <path id="tapBottomArc" d="M 16,62 A 44,44 0 0,0 104,62" />
+          </defs>
+          <circle cx="60" cy="60" r="56" fill="#5A8F29" />
+          <circle cx="60" cy="60" r="35" fill="#FFFFFF" />
+          <text fill="#FFFFFF" font-size="13" font-weight="900" letter-spacing="4">
+            <textPath href="#tapTopArc" startOffset="50%" text-anchor="middle">TAP</textPath>
+          </text>
+          <text fill="#FFFFFF" font-size="9.5" font-weight="800" letter-spacing="1">
+            <textPath href="#tapBottomArc" startOffset="50%" text-anchor="middle">產銷履歷農產品</textPath>
+          </text>
+          <path d="M60 88 C36 73 32 45 50 38 C56 36 60 41 60 45 C60 41 64 36 70 38 C88 45 84 73 60 88 Z" fill="#6BA43A" />
+          <g fill="#FFFFFF" stroke="#6BA43A" stroke-width="1">
+            <path d="M58 43 L68 53 L63 53 L63 63 L53 63 L53 53 L48 53 Z" transform="rotate(-35 58 55)" />
+            <path d="M62 79 L52 69 L57 69 L57 59 L67 59 L67 69 L72 69 Z" transform="rotate(-35 62 67)" />
+          </g>
+        </svg>
+      `,
+      CAS: `
+        <svg viewBox="0 0 120 120" class="w-full h-full" aria-label="CAS 台灣優良農產品標章">
+          <defs>
+            <path id="casTopArc" d="M 20,60 A 40,40 0 1,1 100,60" />
+            <path id="casBottomArc" d="M 18,62 A 42,42 0 0,0 102,62" />
+          </defs>
+          <circle cx="60" cy="60" r="56" fill="#FFFFFF" stroke="#C82828" stroke-width="4" />
+          <circle cx="60" cy="60" r="34" fill="none" stroke="#C82828" stroke-width="2.5" />
+          <text fill="#C82828" font-size="10.5" font-weight="900" letter-spacing="1.5">
+            <textPath href="#casTopArc" startOffset="50%" text-anchor="middle">台灣優良農產品</textPath>
+          </text>
+          <text fill="#C82828" font-size="10" font-weight="800" letter-spacing="1.2">
+            <textPath href="#casBottomArc" startOffset="50%" text-anchor="middle">第000000號</textPath>
+          </text>
+          <path d="M58 34 C41 34 32 46 32 60 C32 74 41 86 58 86 L58 79 C46 79 40 70 40 60 C40 50 46 41 58 41 Z" fill="#C82828" />
+          <polygon points="56,31 66,38 56,44" fill="#C82828" />
+          <polygon points="56,76 66,83 56,89" fill="#C82828" />
+          <text x="65" y="69" text-anchor="middle" fill="#C82828" font-size="25" font-weight="900" font-family="Arial, sans-serif" letter-spacing="-1">AS</text>
+        </svg>
+      `,
+      ORGANIC: `
+        <svg viewBox="0 0 120 120" class="w-full h-full" aria-label="有機農產品標章">
+          <defs>
+            <path id="orgTopArc" d="M 20,60 A 40,40 0 1,1 100,60" />
+            <path id="orgBottomArc" d="M 16,62 A 44,44 0 0,0 104,62" />
+          </defs>
+          <circle cx="60" cy="60" r="56" fill="#3B9C35" />
+          <circle cx="60" cy="60" r="35" fill="#FFFFFF" />
+          <text fill="#FFFFFF" font-size="10.5" font-weight="900" letter-spacing="2">
+            <textPath href="#orgTopArc" startOffset="50%" text-anchor="middle">ORGANIC</textPath>
+          </text>
+          <text fill="#FFFFFF" font-size="10.5" font-weight="800" letter-spacing="1.5">
+            <textPath href="#orgBottomArc" startOffset="50%" text-anchor="middle">有機農產品</textPath>
+          </text>
+          <path d="M60 72 C60 54 46 43 34 46 C36 60 47 68 60 72 Z" fill="#3B9C35" />
+          <path d="M60 68 C62 50 75 40 87 44 C84 58 73 65 60 68 Z" fill="#6BBF47" />
+          <path d="M32 76 Q60 65 88 76 Q60 88 32 76 Z" fill="#3B9C35" />
+        </svg>
+      `,
+      QR: `
+        <svg viewBox="0 0 190 95" class="w-full h-full" aria-label="防檢局屠宰衛生合格與生產追溯 QR Code">
+          <rect x="2" y="2" width="186" height="91" rx="8" fill="#FFFFFF" stroke="#132238" stroke-width="3.5" />
+          <g fill="#132238">
+            <rect x="14" y="10" width="2" height="14" /><rect x="18" y="10" width="4" height="14" />
+            <rect x="25" y="10" width="2" height="14" /><rect x="30" y="10" width="3" height="14" />
+            <rect x="36" y="10" width="2" height="14" /><rect x="41" y="10" width="5" height="14" />
+            <rect x="49" y="10" width="2" height="14" /><rect x="54" y="10" width="3" height="14" />
+            <rect x="60" y="10" width="2" height="14" /><rect x="65" y="10" width="4" height="14" />
+            <rect x="72" y="10" width="2" height="14" /><rect x="77" y="10" width="3" height="14" />
+            <rect x="83" y="10" width="2" height="14" /><rect x="88" y="10" width="4" height="14" />
+            <rect x="95" y="10" width="2" height="14" /><rect x="100" y="10" width="3" height="14" />
+          </g>
+          <text x="58" y="33" text-anchor="middle" fill="#132238" font-size="8" font-family="monospace" font-weight="700">4123154757 1234</text>
+          <rect x="12" y="38" width="104" height="45" rx="4" fill="none" stroke="#C82828" stroke-width="2.5" />
+          <text x="44" y="56" text-anchor="middle" fill="#C82828" font-size="13.5" font-weight="900">防檢局</text>
+          <text x="44" y="75" text-anchor="middle" fill="#C82828" font-size="13.5" font-weight="900">屠宰衛生</text>
+          <text x="93" y="69" text-anchor="middle" fill="#C82828" font-size="22" font-weight="900">合格</text>
+          <g fill="#132238" transform="translate(124, 15)">
+            <rect x="0" y="0" width="18" height="18" fill="none" stroke="#132238" stroke-width="3" />
+            <rect x="5" y="5" width="8" height="8" />
+            <rect x="34" y="0" width="18" height="18" fill="none" stroke="#132238" stroke-width="3" />
+            <rect x="39" y="5" width="8" height="8" />
+            <rect x="0" y="34" width="18" height="18" fill="none" stroke="#132238" stroke-width="3" />
+            <rect x="5" y="39" width="8" height="8" />
+            <rect x="22" y="2" width="4" height="4" /><rect x="22" y="10" width="4" height="8" />
+            <rect x="2" y="22" width="8" height="4" /><rect x="14" y="22" width="12" height="4" />
+            <rect x="30" y="22" width="6" height="6" /><rect x="40" y="22" width="12" height="4" />
+            <rect x="22" y="32" width="6" height="6" /><rect x="32" y="34" width="8" height="4" />
+            <rect x="44" y="32" width="8" height="8" /><rect x="22" y="42" width="10" height="10" />
+            <rect x="36" y="44" width="6" height="8" /><rect x="46" y="46" width="6" height="6" />
+          </g>
+        </svg>
+      `
+    };
+
+    const DEFAULT_NPC_SVGS = {
+      TAP: `
+        <svg viewBox="0 0 120 120" class="w-full h-full">
+          <circle cx="60" cy="64" r="46" fill="#DCFCE7" stroke="#132238" stroke-width="3" />
+          <path d="M28 108 C30 86 90 86 92 108 Z" fill="#2563EB" />
+          <rect x="44" y="88" width="32" height="20" fill="#1D4ED8" rx="4" />
+          <circle cx="48" cy="93" r="3" fill="#FACC15" />
+          <circle cx="72" cy="93" r="3" fill="#FACC15" />
+          <circle cx="60" cy="64" r="24" fill="#FDE68A" />
+          <circle cx="51" cy="62" r="3" fill="#132238" />
+          <circle cx="69" cy="62" r="3" fill="#132238" />
+          <circle cx="46" cy="68" r="3.5" fill="#FCA5A5" opacity="0.7" />
+          <circle cx="74" cy="68" r="3.5" fill="#FCA5A5" opacity="0.7" />
+          <path d="M52 71 Q60 79 68 71" fill="none" stroke="#132238" stroke-width="3" stroke-linecap="round" />
+          <ellipse cx="60" cy="44" rx="42" ry="10" fill="#F59E0B" />
+          <path d="M36 44 C38 24 82 24 84 44 Z" fill="#FBBF24" />
+          <rect x="37" y="39" width="46" height="5" fill="#16A34A" rx="2" />
+        </svg>
+      `,
+      CAS: `
+        <svg viewBox="0 0 120 120" class="w-full h-full">
+          <circle cx="60" cy="64" r="46" fill="#FFE4E6" stroke="#132238" stroke-width="3" />
+          <path d="M28 108 C30 85 90 85 92 108 Z" fill="#FFFFFF" stroke="#E11D48" stroke-width="2" />
+          <path d="M54 88 L60 102 L66 88" fill="#FDA4AF" />
+          <circle cx="60" cy="62" r="24" fill="#FED7AA" />
+          <path d="M36 60 C36 40 84 40 84 60 C84 52 72 48 60 52 C48 48 36 52 36 60 Z" fill="#7C2D12" />
+          <circle cx="51" cy="63" r="3" fill="#132238" />
+          <circle cx="69" cy="63" r="3" fill="#132238" />
+          <path d="M54 72 Q60 77 66 72" fill="none" stroke="#132238" stroke-width="2.8" stroke-linecap="round" />
+          <path d="M40 42 C34 32 46 22 60 26 C74 22 86 32 80 42 Z" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2" />
+          <rect x="42" y="39" width="36" height="7" fill="#E11D48" rx="3" />
+          <circle cx="88" cy="84" r="10" fill="#BAE6FD" stroke="#132238" stroke-width="3" />
+          <line x1="81" y1="91" x2="73" y2="100" stroke="#132238" stroke-width="4" stroke-linecap="round" />
+        </svg>
+      `,
+      ORGANIC: `
+        <svg viewBox="0 0 120 120" class="w-full h-full">
+          <circle cx="60" cy="64" r="46" fill="#ECFCCB" stroke="#132238" stroke-width="3" />
+          <path d="M30 108 C34 84 86 84 90 108 Z" fill="#65A30D" />
+          <circle cx="60" cy="66" r="25" fill="#FEF3C7" />
+          <circle cx="50" cy="65" r="3.5" fill="#132238" />
+          <circle cx="70" cy="65" r="3.5" fill="#132238" />
+          <circle cx="49" cy="64" r="1.2" fill="#FFFFFF" />
+          <circle cx="69" cy="64" r="1.2" fill="#FFFFFF" />
+          <ellipse cx="44" cy="71" rx="4" ry="2.5" fill="#F87171" opacity="0.6" />
+          <ellipse cx="76" cy="71" rx="4" ry="2.5" fill="#F87171" opacity="0.6" />
+          <path d="M54 74 Q60 80 66 74" fill="none" stroke="#132238" stroke-width="2.8" stroke-linecap="round" />
+          <path d="M60 41 L60 28" stroke="#4D7C0F" stroke-width="4" stroke-linecap="round" />
+          <path d="M60 32 C48 22 38 28 44 37 C50 41 57 36 60 32 Z" fill="#84CC16" />
+          <path d="M60 30 C72 20 82 26 76 35 C70 39 63 34 60 30 Z" fill="#4D7C0F" />
+        </svg>
+      `,
+      QR: `
+        <svg viewBox="0 0 120 120" class="w-full h-full">
+          <circle cx="60" cy="64" r="46" fill="#FEF3C7" stroke="#132238" stroke-width="3" />
+          <path d="M28 108 C30 85 90 85 92 108 Z" fill="#1E3A8A" />
+          <polygon points="60,88 55,104 65,104" fill="#F59E0B" />
+          <polygon points="36,48 42,26 54,42" fill="#D97706" />
+          <polygon points="84,48 78,26 66,42" fill="#D97706" />
+          <circle cx="60" cy="64" r="24" fill="#F59E0B" />
+          <path d="M40 68 C40 58 80 58 80 68 C80 82 40 82 40 68 Z" fill="#FFFBEB" />
+          <circle cx="51" cy="61" r="3" fill="#132238" />
+          <circle cx="69" cy="61" r="3" fill="#132238" />
+          <ellipse cx="60" cy="68" rx="4.5" ry="3.2" fill="#132238" />
+          <path d="M55 74 Q60 78 65 74" fill="none" stroke="#132238" stroke-width="2.5" stroke-linecap="round" />
+          <rect x="44" y="34" width="32" height="10" rx="3" fill="#1E3A8A" />
+          <rect x="40" y="42" width="40" height="4" rx="2" fill="#132238" />
+          <circle cx="60" cy="39" r="3" fill="#FACC15" />
+        </svg>
+      `
+    };
+
+    const NPC_STORY = [
+      {
+        tag: "TAP",
+        roleLabel: "夥伴 1 / 4 • 產銷履歷達人",
+        name: "阿農伯",
+        catchphrase: "「從小到大的成長日記！」",
+        badgeTitle: "TAP 產銷履歷標章",
+        dialogue: "嗨！我是阿農伯！我連哪天施肥、餵幾顆飼料都寫進電腦日記了！從農場飼養、屠宰分切、檢驗到販售，4 層紀錄通通透明給你看！",
+        keyPoint: "綠色圓章＋雙向箭頭！只要看到「完整生產紀錄、從農場到餐桌透明」，選我就對了！",
+        btnText: "🖐️ 蓋章記住了！認識下一位 ➔",
+        defaultExplain: "阿農伯讚聲：從農場到販售 4 層紀錄全公開，就是「TAP 產銷履歷」！",
+        cardBg: "bg-emerald-50"
+      },
+      {
+        tag: "CAS",
+        roleLabel: "夥伴 2 / 4 • 工廠品管守門員",
+        name: "品管長小美",
+        catchphrase: "「國產加工安全牌！」",
+        badgeTitle: "CAS 台灣優良農產品",
+        dialogue: "我是品管長小美！進廚房的國產冷凍貢丸、水餃、雞塊都歸我管！工廠衛生、冷凍保存跟定期抽驗沒過關，休想端上營養午餐！",
+        keyPoint: "紅色雙圓環標章！專門把關「國產原料＋合格工廠加工與冷鏈衛生」！",
+        btnText: "🔍 蓋章過關！認識下一位 ➔",
+        defaultExplain: "品管小美比讚：國產原料＋工廠加工衛生安全牌，就是紅色「CAS 標章」！",
+        cardBg: "bg-rose-50"
+      },
+      {
+        tag: "ORGANIC",
+        roleLabel: "夥伴 3 / 4 • 生態守護小精靈",
+        name: "森系精靈綠綠",
+        catchphrase: "「零農藥零化肥天然派！」",
+        badgeTitle: "有機農產品標章",
+        dialogue: "哈囉～我是精靈綠綠！我照顧的蔬果完全不用化學合成農藥和化肥，連土壤跟灌溉水都要通過最嚴格檢驗，連蚯蚓都按讚喔！",
+        keyPoint: "翠綠圓章＋白色嫩芽！看到「無化學農藥、無化肥、土壤水源嚴檢」，立刻選我！",
+        btnText: "🌱 蓋章記住了！認識最後一位 ➔",
+        defaultExplain: "精靈綠綠轉圈圈：零農藥零化肥的天然農法，就是「有機農產品標章」！",
+        cardBg: "bg-lime-50"
+      },
+      {
+        tag: "QR",
+        roleLabel: "夥伴 4 / 4 • 源頭追蹤大隊長",
+        name: "防檢局汪警長",
+        catchphrase: "「嗶一聲！源頭立刻現形！」",
+        badgeTitle: "一Q 溯源 / 屠宰合格",
+        dialogue: "汪！我是汪警長！生鮮肉品有沒有經過「防檢局屠宰衛生合格」、洗選蛋是哪家牧場養的？拿起手機嗶一聲掃 QR Code，生產者馬上現形！",
+        keyPoint: "紅框「屠宰衛生合格」＋黑白 QR Code！負責電宰合格與蛋殼噴印碼源頭追溯！",
+        btnText: "🚀 4 位夥伴集結完畢！開始實戰 ➔",
+        defaultExplain: "汪警長敬禮：防檢局屠宰衛生合格＋QR Code 溯源，屬於「一Q」把關！",
+        cardBg: "bg-amber-50"
+      }
+    ];
+
+    const DEFAULT_QUESTIONS = [
+      {
+        id: "q1",
+        media: "🍗",
+        name: "全歷程國產去骨雞腿",
+        clue: "從農場飼養、屠宰分切、第三方檢驗到販售都有完整管理紀錄！",
+        answer: "TAP",
+        explain: "阿農伯讚聲：從飼養到販售 4 層紀錄全公開，就是「TAP 產銷履歷」！"
+      },
+      {
+        id: "q2",
+        media: "🍡",
+        name: "國產冷凍豬肉貢丸",
+        clue: "使用國產豬肉在合格工廠加工，強調工廠衛生與定期品質檢驗。",
+        answer: "CAS",
+        explain: "品管小美比讚：國產原料＋工廠加工衛生安全牌，就是紅色「CAS 標章」！"
+      },
+      {
+        id: "q3",
+        media: "🥩",
+        name: "電宰合格溫體豬肉",
+        clue: "貼有紅色「防檢局屠宰衛生合格」標誌與 QR Code，掃碼可追蹤來源！",
+        answer: "QR",
+        explain: "汪警長敬禮：防檢局屠宰衛生合格＋QR Code 溯源，屬於「一Q」把關！"
+      },
+      {
+        id: "q4",
+        media: "🥬",
+        name: "無化學農藥高麗菜",
+        clue: "栽培過程完全不使用化學合成農藥與化肥，並通過土壤與水源檢測。",
+        answer: "ORGANIC",
+        explain: "精靈綠綠轉圈圈：零農藥零化肥的天然農法，就是「有機農產品標章」！"
+      },
+      {
+        id: "q5",
+        media: "🥚",
+        name: "國產洗選雞蛋（蛋殼噴印碼）",
+        clue: "蛋殼上印有黑色溯源噴印碼，農民自主登錄具名負責，掃描可查牧場！",
+        answer: "QR",
+        explain: "汪警長汪一聲：蛋殼噴印碼與自主登錄溯源條碼，正是「一Q 生產追溯」！"
+      },
+      {
+        id: "q6",
+        media: "🍚",
+        name: "履歷台稉九號白米",
+        clue: "農民逐筆登錄插秧、施肥、收割日期，符合良好農業規範並通過稽核。",
+        answer: "TAP",
+        explain: "阿農伯推眼鏡：寫滿成長日記、資訊公開透明的白米，選「TAP 產銷履歷」！"
+      },
+      {
+        id: "q7",
+        media: "🥟",
+        name: "國產高麗菜豬肉水餃",
+        clue: "國產豬肉與蔬菜製作的冷凍調理食品，通過工廠冷鏈衛生與檢驗。",
+        answer: "CAS",
+        explain: "品管小美蓋章：冷凍水餃、貢丸等國產加工安全牌，由「CAS」嚴格把關！"
+      },
+      {
+        id: "q8",
+        media: "🥕",
+        name: "生態認證紅蘿蔔",
+        clue: "遵守生態平衡原理，絕無化學合成物質或基因改造成分。",
+        answer: "ORGANIC",
+        explain: "精靈綠綠拍手：最愛護土地、零化學添加的蔬果，獲得「有機農產品標章」！"
+      }
+    ];
+
+    /**
+     * =========================================================================
+     * 2. LocalStorage 資料持久化管理（支援題庫增刪改、標章/角色圖片替換）
+     * =========================================================================
+     */
+    const STORAGE_KEY = '3q_kiosk_config_v1';
+
+    let appConfig = {
+      questions: JSON.parse(JSON.stringify(DEFAULT_QUESTIONS)),
+      customBadges: { TAP: '', CAS: '', ORGANIC: '', QR: '' },
+      customNpcs: { TAP: '', CAS: '', ORGANIC: '', QR: '' },
+      totalQuestions: 5,
+      timeLimit: 18
+    };
+
+    function loadAppConfig() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (Array.isArray(parsed.questions) && parsed.questions.length > 0) {
+            appConfig.questions = parsed.questions;
+          }
+          if (parsed.customBadges) appConfig.customBadges = { ...appConfig.customBadges, ...parsed.customBadges };
+          if (parsed.customNpcs) appConfig.customNpcs = { ...appConfig.customNpcs, ...parsed.customNpcs };
+          if (parsed.totalQuestions) appConfig.totalQuestions = Number(parsed.totalQuestions) || 5;
+          if (parsed.timeLimit) appConfig.timeLimit = Number(parsed.timeLimit) || 18;
+        }
+      } catch (e) {
+        console.warn('讀取本機設定失敗，使用預設值', e);
+      }
+    }
+
+    function saveAppConfig() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(appConfig));
+      } catch (e) {
+        showAdminToast('⚠️ 瀏覽器儲存空間已滿，建議減少上傳大圖或使用圖片網址！');
+      }
+    }
+
+    /**
+     * =========================================================================
+     * 3. 通用媒體與圖示渲染器（自動判斷網址/Base64 或 Emoji/內建 SVG）
+     * =========================================================================
+     */
+    function isImageSource(str) {
+      if (!str || typeof str !== 'string') return false;
+      const s = str.trim();
+      return s.startsWith('data:image/') || s.startsWith('http://') || s.startsWith('https://') || s.startsWith('./') || s.startsWith('/');
+    }
+
+    function getBadgeHTML(type, sizeClass) {
+      const customSrc = appConfig.customBadges[type];
+      if (isImageSource(customSrc)) {
+        return `<img src="${customSrc}" alt="${type} 標章" class="${sizeClass} object-contain rounded-lg" onerror="this.parentElement.innerHTML=DEFAULT_BADGE_SVGS['${type}']" />`;
+      }
+      return `<div class="${sizeClass} flex items-center justify-center">${DEFAULT_BADGE_SVGS[type] || ''}</div>`;
+    }
+
+    function getNpcHTML(type, extraClass = 'w-full h-full') {
+      const customSrc = appConfig.customNpcs[type];
+      if (isImageSource(customSrc)) {
+        return `<img src="${customSrc}" alt="${type} 角色" class="${extraClass} object-cover rounded-full border-2 border-[#132238] bg-white" onerror="this.parentElement.innerHTML=DEFAULT_NPC_SVGS['${type}']" />`;
+      }
+      return `<div class="${extraClass} flex items-center justify-center">${DEFAULT_NPC_SVGS[type] || ''}</div>`;
+    }
+
+    function renderMediaHTML(mediaStr, emojiClass = 'text-5xl sm:text-6xl', imgClass = 'w-full h-full object-cover') {
+      if (isImageSource(mediaStr)) {
+        return `<img src="${mediaStr}" alt="食材圖片" class="${imgClass}" onerror="this.outerHTML='<span class=\\'${emojiClass}\\'>🍽️</span>'" />`;
+      }
+      return `<span class="${emojiClass}">${mediaStr || '🍽️'}</span>`;
+    }
+
+    function refreshAllVisualSlots() {
+      document.querySelectorAll('[data-badge-slot]').forEach(slot => {
+        const type = slot.getAttribute('data-badge-slot');
+        const sizeClass = slot.getAttribute('data-badge-size') || 'w-12 h-12';
+        slot.innerHTML = getBadgeHTML(type, sizeClass);
+      });
+      ['TAP', 'CAS', 'ORGANIC', 'QR'].forEach(tag => {
+        const el = document.getElementById(`end-npc-${tag}`);
+        if (el) el.innerHTML = getNpcHTML(tag);
+      });
+    }
+
+    /**
+     * =========================================================================
+     * 4. 頂部橫幅收合控制 & 遊戲核心狀態
+     * =========================================================================
+     */
+    function toggleHeader(collapse) {
+      const header = document.getElementById('main-header');
+      const floating = document.getElementById('floating-toolbar');
+      if (collapse) {
+        header.classList.add('hidden');
+        floating.classList.remove('hidden');
+      } else {
+        header.classList.remove('hidden');
+        floating.classList.add('hidden');
+      }
+    }
+
+    let npcIndex = 0;
+    let stampedNpcs = new Set();
+    let typewriterTimer = null;
+    let currentQuestions = [];
+    let currentIndex = 0;
+    let score = 0;
+    let correctCount = 0;
+    let combo = 0;
+    let maxCombo = 0;
+    let timeLeft = 18;
+    let countdownInterval = null;
+    let isAnswered = false;
+    let isPaused = false;
+    let soundEnabled = true;
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const playerName = urlParams.get('player') || localStorage.getItem('3q_player_name') || '';
+    const nextUrl = urlParams.get('next') || '';
+
+    window.addEventListener('DOMContentLoaded', () => {
+      loadAppConfig();
+      refreshAllVisualSlots();
+
+      if (playerName) {
+        document.getElementById('player-greeting-text').textContent = `歡迎 ${playerName} 神探！先認識 4 位廚房夥伴吧！`;
+        document.getElementById('player-greeting').classList.remove('hidden');
+      }
+      if (nextUrl) {
+        document.getElementById('btn-next-station').classList.remove('hidden');
+      }
+      renderNpcStory(0, false);
+    });
+
+    /**
+     * =========================================================================
+     * 5. Web Audio API 音效
+     * =========================================================================
+     */
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    let audioCtx = null;
+
+    function playTone(type) {
+      if (!soundEnabled) return;
+      try {
+        if (!audioCtx) audioCtx = new AudioCtx();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        const now = audioCtx.currentTime;
+        if (type === 'blip') {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(520 + Math.random() * 140, now);
+          gain.gain.setValueAtTime(0.03, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+          osc.start(now);
+          osc.stop(now + 0.04);
+        } else if (type === 'stamp') {
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(320, now);
+          osc.frequency.exponentialRampToValueAtTime(640, now + 0.14);
+          gain.gain.setValueAtTime(0.15, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+          osc.start(now);
+          osc.stop(now + 0.18);
+        } else if (type === 'correct') {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(523.25, now);
+          osc.frequency.setValueAtTime(659.25, now + 0.07);
+          osc.frequency.setValueAtTime(783.99, now + 0.14);
+          gain.gain.setValueAtTime(0.14, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.32);
+          osc.start(now);
+          osc.stop(now + 0.32);
+        } else if (type === 'wrong') {
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(220, now);
+          osc.frequency.linearRampToValueAtTime(145, now + 0.25);
+          gain.gain.setValueAtTime(0.14, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.28);
+          osc.start(now);
+          osc.stop(now + 0.28);
+        } else if (type === 'finish') {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(523.25, now);
+          osc.frequency.setValueAtTime(659.25, now + 0.09);
+          osc.frequency.setValueAtTime(783.99, now + 0.18);
+          osc.frequency.setValueAtTime(1046.50, now + 0.27);
+          gain.gain.setValueAtTime(0.15, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.55);
+          osc.start(now);
+          osc.stop(now + 0.55);
+        }
+      } catch (e) {}
+    }
+
+    function toggleSound() {
+      soundEnabled = !soundEnabled;
+      const icon = soundEnabled ? '🔊' : '🔇';
+      document.getElementById('btn-sound').textContent = icon;
+      document.getElementById('btn-sound-mini').textContent = icon;
+    }
+
+    function toggleBriefingModal(show) {
+      const modal = document.getElementById('briefing-modal');
+      isPaused = show;
+      modal.classList.toggle('hidden', !show);
+    }
+
+    function toggleCheatSheet(show) {
+      const modal = document.getElementById('cheatsheet-modal');
+      isPaused = show;
+      modal.classList.toggle('hidden', !show);
+    }
+
+    /**
+     * =========================================================================
+     * 6. 階段 1：精簡故事教學舞台邏輯
+     * =========================================================================
+     */
+    function renderNpcPillBar() {
+      const bar = document.getElementById('npc-pill-bar');
+      bar.innerHTML = NPC_STORY.map((item, i) => {
+        const isCurrent = i === npcIndex;
+        const isStamped = stampedNpcs.has(item.tag);
+        const pillStyle = isCurrent
+          ? 'bg-[#FFE600] scale-105 shadow-[3px_3px_0_#132238]'
+          : isStamped
+            ? 'bg-emerald-200'
+            : 'bg-white opacity-80 hover:opacity-100';
+
+        return `
+          <button onclick="renderNpcStory(${i}, true)" class="flex items-center gap-1.5 px-2.5 py-1 rounded-full border-2 border-[#132238] ${pillStyle} transition-all cursor-pointer">
+            <div class="w-6 h-6 shrink-0">${getNpcHTML(item.tag)}</div>
+            <span class="text-xs font-black text-[#132238] hidden sm:inline">${item.name}</span>
+            ${isStamped ? '<span class="text-[10px]">✅</span>' : ''}
+          </button>
+        `;
+      }).join('');
+    }
+
+    function renderNpcStory(idx, withSound = true) {
+      npcIndex = idx;
+      const npc = NPC_STORY[idx];
+      renderNpcPillBar();
+
+      const stage = document.getElementById('npc-stage');
+      stage.classList.remove('animate-slide-in');
+      void stage.offsetWidth;
+      stage.classList.add('animate-slide-in');
+
+      document.getElementById('npc-role-tag').textContent = npc.roleLabel;
+      document.getElementById('npc-hero-box').className = `rounded-2xl p-4 ${npc.cardBg} border-2 border-[#132238] flex flex-col items-center justify-center text-center`;
+      document.getElementById('npc-avatar').innerHTML = getNpcHTML(npc.tag);
+      document.getElementById('npc-name').textContent = npc.name;
+      document.getElementById('npc-catchphrase').textContent = npc.catchphrase;
+
+      const badgeSize = npc.tag === 'QR' ? 'w-32 h-20 sm:w-36 sm:h-24' : 'w-24 h-24 sm:w-28 sm:h-28';
+      document.getElementById('npc-badge-holder').innerHTML = getBadgeHTML(npc.tag, badgeSize);
+      document.getElementById('npc-badge-title').textContent = npc.badgeTitle;
+      document.getElementById('npc-key-point').textContent = npc.keyPoint;
+
+      document.getElementById('npc-stamped-mark').classList.toggle('hidden', !stampedNpcs.has(npc.tag));
+
+      const prevBtn = document.getElementById('btn-prev-npc');
+      prevBtn.classList.toggle('hidden', idx === 0);
+
+      const actionBtn = document.getElementById('btn-npc-action');
+      actionBtn.disabled = false;
+      actionBtn.textContent = npc.btnText;
+
+      clearInterval(typewriterTimer);
+      const dialogueEl = document.getElementById('npc-dialogue');
+      dialogueEl.textContent = '';
+      let charIdx = 0;
+      typewriterTimer = setInterval(() => {
+        if (charIdx < npc.dialogue.length) {
+          dialogueEl.textContent += npc.dialogue[charIdx];
+          if (withSound && charIdx % 3 === 0) playTone('blip');
+          charIdx++;
+        } else {
+          clearInterval(typewriterTimer);
+        }
+      }, 22);
+    }
+
+    function prevNpc() {
+      if (npcIndex > 0) renderNpcStory(npcIndex - 1, true);
+    }
+
+    function handleNpcAction() {
+      const actionBtn = document.getElementById('btn-npc-action');
+      if (actionBtn.disabled) return;
+      actionBtn.disabled = true;
+
+      clearInterval(typewriterTimer);
+      const currentNpc = NPC_STORY[npcIndex];
+      document.getElementById('npc-dialogue').textContent = currentNpc.dialogue;
+
+      stampedNpcs.add(currentNpc.tag);
+      renderNpcPillBar();
+      playTone('stamp');
+      document.getElementById('npc-stamped-mark').classList.remove('hidden');
+
+      setTimeout(() => {
+        if (npcIndex < NPC_STORY.length - 1) {
+          renderNpcStory(npcIndex + 1, true);
+        } else {
+          startGame();
+        }
+      }, 450);
+    }
+
+    function restartStory() {
+      clearInterval(countdownInterval);
+      switchScreen('screen-story');
+      renderNpcStory(0, true);
+    }
+
+    function switchScreen(screenId) {
+      ['screen-story', 'screen-game', 'screen-end'].forEach(id => {
+        document.getElementById(id).classList.add('hidden');
+      });
+      document.getElementById(screenId).classList.remove('hidden');
+    }
+
+    /**
+     * =========================================================================
+     * 7. 階段 2：快手鑑定實戰邏輯
+     * =========================================================================
+     */
+    function startGame() {
+      clearInterval(typewriterTimer);
+      const pool = appConfig.questions.length > 0 ? appConfig.questions : DEFAULT_QUESTIONS;
+      const shuffled = [...pool].sort(() => Math.random() - 0.5);
+      const count = Math.min(appConfig.totalQuestions, shuffled.length);
+      currentQuestions = shuffled.slice(0, count);
+
+      currentIndex = 0;
+      score = 0;
+      correctCount = 0;
+      combo = 0;
+      maxCombo = 0;
+
+      document.getElementById('score-text').textContent = '0';
+      switchScreen('screen-game');
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      isAnswered = false;
+      isPaused = false;
+      timeLeft = appConfig.timeLimit;
+
+      const total = currentQuestions.length;
+      const q = currentQuestions[currentIndex];
+      document.getElementById('progress-text').textContent = `第 ${currentIndex + 1} / ${total} 題`;
+
+      const comboEl = document.getElementById('combo-status');
+      if (combo >= 2) {
+        comboEl.textContent = `🔥 ${combo} 連擊!`;
+        comboEl.classList.remove('hidden');
+      } else {
+        comboEl.classList.add('hidden');
+      }
+
+      const card = document.getElementById('question-card');
+      card.classList.remove('animate-pop', 'animate-shake');
+      void card.offsetWidth;
+      card.classList.add('animate-pop');
+
+      document.getElementById('item-media-box').innerHTML = renderMediaHTML(q.media);
+      document.getElementById('item-name').textContent = q.name;
+      document.getElementById('item-clue').textContent = `線索：${q.clue}`;
+
+      document.querySelectorAll('#options-grid button').forEach(btn => {
+        btn.disabled = false;
+        btn.classList.remove('opacity-40', 'bg-emerald-100', 'bg-rose-100', 'ring-4', 'ring-[#FFE600]');
+      });
+
+      document.getElementById('feedback-box').classList.add('hidden');
+      startQuestionTimer();
+    }
+
+    function startQuestionTimer() {
+      clearInterval(countdownInterval);
+      updateTimerUI();
+
+      countdownInterval = setInterval(() => {
+        if (isPaused || isAnswered) return;
+        timeLeft = Math.max(0, timeLeft - 0.1);
+        updateTimerUI();
+
+        if (timeLeft <= 0) {
+          clearInterval(countdownInterval);
+          handleAnswer('TIMEOUT');
+        }
+      }, 100);
+    }
+
+    function updateTimerUI() {
+      const pct = (timeLeft / appConfig.timeLimit) * 100;
+      const bar = document.getElementById('time-bar');
+      bar.style.width = `${pct}%`;
+
+      if (timeLeft <= 5) {
+        bar.className = 'h-full bg-rose-500 transition-all duration-100';
+      } else if (timeLeft <= appConfig.timeLimit * 0.5) {
+        bar.className = 'h-full bg-[#FF6B00] transition-all duration-100';
+      } else {
+        bar.className = 'h-full bg-emerald-500 transition-all duration-100';
+      }
+
+      document.getElementById('time-num').textContent = `${Math.ceil(timeLeft)}s`;
+    }
+
+    function handleAnswer(selectedTag) {
+      if (isAnswered) return;
+      isAnswered = true;
+      clearInterval(countdownInterval);
+
+      const q = currentQuestions[currentIndex];
+      const isCorrect = selectedTag === q.answer;
+      const npcInfo = NPC_STORY.find(n => n.tag === q.answer) || NPC_STORY[0];
+
+      document.querySelectorAll('#options-grid button').forEach(btn => {
+        btn.disabled = true;
+        const tag = btn.getAttribute('data-tag');
+        if (tag === q.answer) {
+          btn.classList.add('bg-emerald-100', 'ring-4', 'ring-[#FFE600]');
+        } else if (tag === selectedTag && !isCorrect) {
+          btn.classList.add('bg-rose-100', 'opacity-80');
+        } else {
+          btn.classList.add('opacity-40');
+        }
+      });
+
+      const feedbackBox = document.getElementById('feedback-box');
+      const feedbackNpcMini = document.getElementById('feedback-npc-mini');
+      const feedbackTitle = document.getElementById('feedback-title');
+      const feedbackDesc = document.getElementById('feedback-desc');
+      const btnNext = document.getElementById('btn-next');
+
+      feedbackNpcMini.innerHTML = getNpcHTML(q.answer);
+      feedbackBox.classList.remove('hidden', 'bg-emerald-50', 'bg-rose-50');
+
+      if (isCorrect) {
+        correctCount++;
+        combo++;
+        if (combo > maxCombo) maxCombo = combo;
+
+        const comboBonus = combo >= 2 ? (combo - 1) * 5 : 0;
+        const gained = 20 + comboBonus;
+        score += gained;
+
+        document.getElementById('score-text').textContent = score;
+        if (comboBonus > 0) {
+          const bonusEl = document.getElementById('float-bonus');
+          bonusEl.textContent = `+${comboBonus}!`;
+          bonusEl.classList.remove('hidden');
+          setTimeout(() => bonusEl.classList.add('hidden'), 850);
+        }
+
+        playTone('correct');
+        feedbackBox.classList.add('bg-emerald-50');
+        feedbackTitle.textContent = comboBonus > 0
+          ? `✅ 太神啦！+${gained} 分（含連擊獎勵）`
+          : `✅ 鑑定正確！+${gained} 分`;
+        btnNext.className = 'shrink-0 px-5 py-2.5 rounded-xl neo-btn font-black text-sm text-white bg-emerald-600 hover:bg-emerald-500 cursor-pointer';
+      } else {
+        combo = 0;
+        playTone('wrong');
+        document.getElementById('question-card').classList.add('animate-shake');
+
+        feedbackBox.classList.add('bg-rose-50');
+        feedbackTitle.textContent = selectedTag === 'TIMEOUT'
+          ? '⏰ 時間到囉！聽聽夥伴怎麼說'
+          : '💡 差一點點！夥伴來提醒你囉';
+        btnNext.className = 'shrink-0 px-5 py-2.5 rounded-xl neo-btn font-black text-sm text-white bg-[#FF6B00] hover:bg-[#ff7b1c] cursor-pointer';
+      }
+
+      feedbackDesc.textContent = q.explain || npcInfo.defaultExplain;
+      btnNext.textContent = currentIndex === currentQuestions.length - 1 ? '領取神探證書 🏆' : '下一題 ➔';
+    }
+
+    function nextQuestion() {
+      currentIndex++;
+      if (currentIndex < currentQuestions.length) {
+        renderQuestion();
+      } else {
+        finishGame();
+      }
+    }
+
+    /**
+     * =========================================================================
+     * 8. 階段 3：結算頒獎與跨頁面串聯
+     * =========================================================================
+     */
+    function finishGame() {
+      clearInterval(countdownInterval);
+      playTone('finish');
+
+      const total = currentQuestions.length;
+      const ratio = total > 0 ? correctCount / total : 0;
+
+      let title = '廚房見習小神探';
+      let subtitle = '重溫一次 4 位夥伴的秘訣，下一次一定能拿滿分！';
+      let icon = '🌱';
+
+      if (ratio === 1) {
+        title = '傳奇食安大隊長';
+        subtitle = '完美全對！四位夥伴一致通過頒發最高榮譽勳章！';
+        icon = '👑';
+      } else if (ratio >= 0.6) {
+        title = '金牌午餐守護員';
+        subtitle = '表現超棒！你已經能輕鬆分辨三章一Q食材囉！';
+        icon = '🎖️';
+      }
+
+      document.getElementById('result-icon').textContent = icon;
+      document.getElementById('result-title').textContent = playerName ? `${playerName}：${title}` : title;
+      document.getElementById('result-subtitle').textContent = subtitle;
+      document.getElementById('final-score').textContent = score;
+      document.getElementById('final-correct').textContent = `${correctCount} / ${total}`;
+      document.getElementById('final-combo').textContent = `${maxCombo} 🔥`;
+
+      try {
+        localStorage.setItem('3q_game_result', JSON.stringify({
+          completed: true,
+          player: playerName || '訪客',
+          score,
+          correctCount,
+          totalQuestions: total,
+          maxCombo,
+          title,
+          timestamp: new Date().toISOString()
+        }));
+      } catch (e) {}
+
+      switchScreen('screen-end');
+    }
+
+    function goNextStation() {
+      if (!nextUrl) return;
+      try {
+        const target = new URL(nextUrl, window.location.href);
+        target.searchParams.set('3q_score', score);
+        target.searchParams.set('3q_passed', '1');
+        if (playerName) target.searchParams.set('player', playerName);
+        window.location.href = target.toString();
+      } catch (e) {
+        window.location.href = nextUrl;
+      }
+    }
+
+    /**
+     * =========================================================================
+     * 9. 管理者後台系統（題庫增刪改、本機圖片壓縮轉 Base64、標章/角色圖片替換）
+     * =========================================================================
+     */
+    let editingQuestionId = null;
+
+    function openAdminModal() {
+      isPaused = true;
+      document.getElementById('admin-modal').classList.remove('hidden');
+      switchAdminTab('questions');
+      renderAdminQuestionList();
+      renderAdminMediaEditors();
+      document.getElementById('setting-total-q').value = appConfig.totalQuestions;
+      document.getElementById('setting-time-limit').value = appConfig.timeLimit;
+    }
+
+    function closeAdminModal() {
+      document.getElementById('admin-modal').classList.add('hidden');
+      isPaused = false;
+      refreshAllVisualSlots();
+      if (!document.getElementById('screen-story').classList.contains('hidden')) {
+        renderNpcStory(npcIndex, false);
+      }
+    }
+
+    function showAdminToast(msg) {
+      const toast = document.getElementById('admin-toast');
+      toast.textContent = msg;
+      toast.classList.remove('hidden');
+      setTimeout(() => toast.classList.add('hidden'), 3000);
+    }
+
+    function switchAdminTab(tab) {
+      ['questions', 'media', 'settings'].forEach(t => {
+        document.getElementById(`admin-tab-${t}`).classList.add('hidden');
+        const btn = document.getElementById(`tab-btn-${t}`);
+        btn.className = 'px-4 py-2 rounded-xl border-2 border-[#132238] bg-white hover:bg-slate-100 text-[#132238] font-black text-xs sm:text-sm cursor-pointer';
+      });
+      document.getElementById(`admin-tab-${tab}`).classList.remove('hidden');
+      const activeBtn = document.getElementById(`tab-btn-${tab}`);
+      activeBtn.className = 'px-4 py-2 rounded-xl border-2 border-[#132238] bg-[#FFE600] text-[#132238] font-black text-xs sm:text-sm shadow-[2px_2px_0_#132238] cursor-pointer';
+    }
+
+    // 圖片壓縮工具（防止本機高畫質照片撐爆 LocalStorage）
+    function compressImageFile(file, maxWidth = 360) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const img = new Image();
+          img.onload = () => {
+            const canvas = document.createElement('canvas');
+            let w = img.width;
+            let h = img.height;
+            if (w > maxWidth) {
+              h = Math.round((h * maxWidth) / w);
+              w = maxWidth;
+            }
+            canvas.width = w;
+            canvas.height = h;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, w, h);
+            const mime = file.type === 'image/png' ? 'image/png' : 'image/jpeg';
+            resolve(canvas.toDataURL(mime, 0.82));
+          };
+          img.onerror = reject;
+          img.src = e.target.result;
+        };
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
+
+    // --- 題庫管理邏輯 ---
+    function updateQuestionPreview() {
+      const val = document.getElementById('q-input-emoji').value.trim();
+      document.getElementById('q-img-preview').innerHTML = renderMediaHTML(val || '🍽️', 'text-3xl', 'w-full h-full object-cover');
+    }
+
+    async function handleQuestionImageUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      try {
+        const base64 = await compressImageFile(file, 360);
+        document.getElementById('q-input-emoji').value = base64;
+        updateQuestionPreview();
+        showAdminToast('✅ 照片已載入並最佳化壓縮！記得點擊「儲存題目」喔！');
+      } catch (e) {
+        showAdminToast('⚠️ 圖片讀取失敗，請換一張圖片試試');
+      }
+      event.target.value = '';
+    }
+
+    function saveQuestionItem() {
+      const name = document.getElementById('q-input-name').value.trim();
+      const answer = document.getElementById('q-input-answer').value;
+      const media = document.getElementById('q-input-emoji').value.trim() || '🍽️';
+      const clue = document.getElementById('q-input-clue').value.trim();
+      const explain = document.getElementById('q-input-explain').value.trim();
+
+      if (!name || !clue) {
+        showAdminToast('⚠️ 請至少填寫「食材名稱」與「食材線索提示」！');
+        return;
+      }
+
+      if (editingQuestionId) {
+        const idx = appConfig.questions.findIndex(item => item.id === editingQuestionId);
+        if (idx !== -1) {
+          appConfig.questions[idx] = { id: editingQuestionId, name, answer, media, clue, explain };
+        }
+        showAdminToast(`✅ 已更新題目：「${name}」`);
+      } else {
+        appConfig.questions.unshift({
+          id: 'q_' + Date.now(),
+          name,
+          answer,
+          media,
+          clue,
+          explain
+        });
+        showAdminToast(`🎉 已新增題目：「${name}」`);
+      }
+
+      saveAppConfig();
+      resetQuestionForm();
+      renderAdminQuestionList();
+    }
+
+    function editQuestionItem(id) {
+      const item = appConfig.questions.find(q => q.id === id);
+      if (!item) return;
+
+      editingQuestionId = id;
+      document.getElementById('q-form-title').textContent = '✏️ 編輯食材題目';
+      document.getElementById('btn-cancel-edit').classList.remove('hidden');
+      document.getElementById('q-input-name').value = item.name;
+      document.getElementById('q-input-answer').value = item.answer;
+      document.getElementById('q-input-emoji').value = item.media;
+      document.getElementById('q-input-clue').value = item.clue;
+      document.getElementById('q-input-explain').value = item.explain || '';
+      updateQuestionPreview();
+    }
+
+    function deleteQuestionItem(id) {
+      if (appConfig.questions.length <= 1) {
+        showAdminToast('⚠️ 題庫至少需保留 1 道題目喔！');
+        return;
+      }
+      appConfig.questions = appConfig.questions.filter(q => q.id !== id);
+      if (editingQuestionId === id) resetQuestionForm();
+      saveAppConfig();
+      renderAdminQuestionList();
+      showAdminToast('🗑️ 已刪除該題目');
+    }
+
+    function resetQuestionForm() {
+      editingQuestionId = null;
+      document.getElementById('q-form-title').textContent = '➕ 新增食材題目';
+      document.getElementById('btn-cancel-edit').classList.add('hidden');
+      document.getElementById('q-input-name').value = '';
+      document.getElementById('q-input-answer').value = 'TAP';
+      document.getElementById('q-input-emoji').value = '🍅';
+      document.getElementById('q-input-clue').value = '';
+      document.getElementById('q-input-explain').value = '';
+      updateQuestionPreview();
+    }
+
+    function renderAdminQuestionList() {
+      const listEl = document.getElementById('admin-question-list');
+      document.getElementById('admin-q-count').textContent = appConfig.questions.length;
+
+      const tagLabels = {
+        TAP: { text: 'TAP 產銷履歷', bg: 'bg-emerald-200' },
+        CAS: { text: 'CAS 優良農產', bg: 'bg-rose-200' },
+        ORGANIC: { text: '有機農產品', bg: 'bg-lime-200' },
+        QR: { text: '一Q 溯源/合格', bg: 'bg-[#FFE600]' }
+      };
+
+      listEl.innerHTML = appConfig.questions.map(q => {
+        const badge = tagLabels[q.answer] || tagLabels.TAP;
+        return `
+          <div class="p-3 rounded-2xl bg-white border-2 border-[#132238] flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3 min-w-0">
+              <div class="w-12 h-12 rounded-xl bg-amber-50 border-2 border-[#132238] flex items-center justify-center shrink-0 overflow-hidden">
+                ${renderMediaHTML(q.media, 'text-2xl', 'w-full h-full object-cover')}
+              </div>
+              <div class="min-w-0">
+                <div class="flex items-center gap-1.5 flex-wrap">
+                  <span class="font-black text-sm text-[#132238] truncate">${q.name}</span>
+                  <span class="text-[10px] font-black px-2 py-0.5 rounded-full border border-[#132238] ${badge.bg}">${badge.text}</span>
+                </div>
+                <p class="text-xs font-bold text-slate-500 truncate mt-0.5">${q.clue}</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-1.5 shrink-0">
+              <button onclick="editQuestionItem('${q.id}')" class="px-2.5 py-1.5 rounded-xl border-2 border-[#132238] bg-[#FFE600] hover:bg-amber-300 text-xs font-black cursor-pointer">
+                編輯
+              </button>
+              <button onclick="deleteQuestionItem('${q.id}')" class="px-2.5 py-1.5 rounded-xl border-2 border-[#132238] bg-rose-100 hover:bg-rose-200 text-rose-800 text-xs font-black cursor-pointer">
+                刪除
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // --- 標章與夥伴圖片替換邏輯 ---
+    function renderAdminMediaEditors() {
+      const badgeMeta = [
+        { tag: 'TAP', title: 'TAP 產銷履歷農產品標章' },
+        { tag: 'CAS', title: 'CAS 台灣優良農產品標章' },
+        { tag: 'ORGANIC', title: '有機農產品標章' },
+        { tag: 'QR', title: '一Q 屠宰合格 / 溯源標章' }
+      ];
+
+      document.getElementById('admin-badges-grid').innerHTML = badgeMeta.map(b => `
+        <div class="p-3.5 rounded-2xl bg-white border-2 border-[#132238] flex items-center gap-3">
+          <div class="w-16 h-16 rounded-xl bg-slate-50 border-2 border-[#132238] p-1 flex items-center justify-center shrink-0 overflow-hidden">
+            ${getBadgeHTML(b.tag, 'w-full h-full')}
+          </div>
+          <div class="flex-1 min-w-0 space-y-1.5">
+            <div class="font-black text-xs sm:text-sm text-[#132238] truncate">${b.title}</div>
+            <input type="text" value="${appConfig.customBadges[b.tag] || ''}" placeholder="貼上圖片網址 (留空用預設圖)"
+              onchange="updateCustomMedia('badge', '${b.tag}', this.value)"
+              class="w-full px-2 py-1 rounded-lg border-2 border-[#132238] text-xs font-bold" />
+            <div class="flex items-center gap-1.5">
+              <label class="px-2.5 py-1 rounded-lg bg-[#FFE600] hover:bg-amber-300 border-2 border-[#132238] text-[11px] font-black cursor-pointer">
+                📁 上傳圖片
+                <input type="file" accept="image/*" class="hidden" onchange="uploadCustomMediaFile(event, 'badge', '${b.tag}')" />
+              </label>
+              <button onclick="updateCustomMedia('badge', '${b.tag}', '')" class="px-2 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 border-2 border-[#132238] text-[11px] font-black cursor-pointer">
+                恢復預設
+              </button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      document.getElementById('admin-npcs-grid').innerHTML = NPC_STORY.map(n => `
+        <div class="p-3.5 rounded-2xl bg-white border-2 border-[#132238] flex items-center gap-3">
+          <div class="w-16 h-16 rounded-xl bg-slate-50 border-2 border-[#132238] p-1 flex items-center justify-center shrink-0 overflow-hidden">
+            ${getNpcHTML(n.tag)}
+          </div>
+          <div class="flex-1 min-w-0 space-y-1.5">
+            <div class="font-black text-xs sm:text-sm text-[#132238] truncate">${n.name}（${n.tag}）</div>
+            <input type="text" value="${appConfig.customNpcs[n.tag] || ''}" placeholder="貼上夥伴圖片網址 (留空用預設圖)"
+              onchange="updateCustomMedia('npc', '${n.tag}', this.value)"
+              class="w-full px-2 py-1 rounded-lg border-2 border-[#132238] text-xs font-bold" />
+            <div class="flex items-center gap-1.5">
+              <label class="px-2.5 py-1 rounded-lg bg-[#FFE600] hover:bg-amber-300 border-2 border-[#132238] text-[11px] font-black cursor-pointer">
+                📁 上傳圖片
+                <input type="file" accept="image/*" class="hidden" onchange="uploadCustomMediaFile(event, 'npc', '${n.tag}')" />
+              </label>
+              <button onclick="updateCustomMedia('npc', '${n.tag}', '')" class="px-2 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 border-2 border-[#132238] text-[11px] font-black cursor-pointer">
+                恢復預設
+              </button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function updateCustomMedia(kind, tag, value) {
+      if (kind === 'badge') {
+        appConfig.customBadges[tag] = value.trim();
+      } else {
+        appConfig.customNpcs[tag] = value.trim();
+      }
+      saveAppConfig();
+      renderAdminMediaEditors();
+      refreshAllVisualSlots();
+      showAdminToast('✅ 圖片設定已更新並儲存！');
+    }
+
+    async function uploadCustomMediaFile(event, kind, tag) {
+      const file = event.target.files[0];
+      if (!file) return;
+      try {
+        const base64 = await compressImageFile(file, 320);
+        updateCustomMedia(kind, tag, base64);
+      } catch (e) {
+        showAdminToast('⚠️ 圖片上傳失敗，請重試');
+      }
+      event.target.value = '';
+    }
+
+    // --- 關卡參數與資料匯出匯入 ---
+    function saveGameSettings() {
+      const qCount = Math.max(1, Math.min(30, parseInt(document.getElementById('setting-total-q').value, 10) || 5));
+      const tLimit = Math.max(5, Math.min(120, parseInt(document.getElementById('setting-time-limit').value, 10) || 18));
+      appConfig.totalQuestions = qCount;
+      appConfig.timeLimit = tLimit;
+      saveAppConfig();
+      showAdminToast(`✅ 已儲存：每局 ${qCount} 題、每題 ${tLimit} 秒！`);
+    }
+
+    function resetAllDefaults() {
+      appConfig = {
+        questions: JSON.parse(JSON.stringify(DEFAULT_QUESTIONS)),
+        customBadges: { TAP: '', CAS: '', ORGANIC: '', QR: '' },
+        customNpcs: { TAP: '', CAS: '', ORGANIC: '', QR: '' },
+        totalQuestions: 5,
+        timeLimit: 18
+      };
+      localStorage.removeItem(STORAGE_KEY);
+      resetQuestionForm();
+      renderAdminQuestionList();
+      renderAdminMediaEditors();
+      refreshAllVisualSlots();
+      document.getElementById('setting-total-q').value = 5;
+      document.getElementById('setting-time-limit').value = 18;
+      showAdminToast('🔄 已還原為原廠預設題庫與圖片！');
+    }
+
+    function exportConfigJSON() {
+      const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(appConfig, null, 2));
+      const a = document.createElement('a');
+      a.href = dataStr;
+      a.download = `3q-game-config-${new Date().toISOString().slice(0, 10)}.json`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      showAdminToast('📤 已匯出 JSON 設定檔！');
+    }
+
+    function importConfigJSON(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        try {
+          const imported = JSON.parse(e.target.result);
+          if (Array.isArray(imported.questions)) appConfig.questions = imported.questions;
+          if (imported.customBadges) appConfig.customBadges = { ...appConfig.customBadges, ...imported.customBadges };
+          if (imported.customNpcs) appConfig.customNpcs = { ...appConfig.customNpcs, ...imported.customNpcs };
+          if (imported.totalQuestions) appConfig.totalQuestions = imported.totalQuestions;
+          if (imported.timeLimit) appConfig.timeLimit = imported.timeLimit;
+          saveAppConfig();
+          renderAdminQuestionList();
+          renderAdminMediaEditors();
+          refreshAllVisualSlots();
+          showAdminToast('📥 成功匯入設定檔！');
+        } catch (err) {
+          showAdminToast('⚠️ JSON 格式錯誤，無法匯入');
+        }
+      };
+      reader.readAsText(file);
+      event.target.value = '';
+    }
+  </script>
+</body>
+</html>
